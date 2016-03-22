@@ -1,4 +1,4 @@
-//Question--*****************************************************************************************************************************
+..//Question--*****************************************************************************************************************************
 
 //Q..What is C language?
 	The C programming language is a standardized programming language developed in the early 1970s by Ken Thompson and Dennis Ritchie for 		use on the UNIX operating system. It has since spread to many other operating systems, and is one of the most widely used programming 		languages. C is prized for its efficiency, and is the most popular programming language for writing system software, though it is also 		used for writing applications. ... 
