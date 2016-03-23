@@ -442,17 +442,19 @@ Preprocessor executes as a seperate pass before the execution of the
 compiler. So textual replacement of clrscr() to 100 occurs.The input program to compiler
 looks like this :
 ---------------------------------------
+25>
 main()
 {
 100;
 printf("%d\n",100);
 }
-Note:
-100; is an executable statement but with no action. So it doesn't give any
+
+Note: 100is an executable statement but with no action. So it doesn't give any
 problem
-25. main()
+26
+main()
 {
-41printf("%p",main);
+printf("%p",main);
 }8Answer:
 Some address will be printed.
 Explanation:
