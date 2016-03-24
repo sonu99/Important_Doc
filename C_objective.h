@@ -1,8 +1,12 @@
 					          C Objective Questions
 					----------------------------------------
------->Please read C1_Basic_c_doc.h before sloving c objective questions.it will refreshe your C concept.please check below link for getting doc.
+------>Please read C1_Basic_c_doc.h before sloving c objective questions.it will refreshe your C concept.please check below link 
+for getting doc.
 
 https://github.com/sonu99/Important_Doc/blob/master/C1_Basic_c_doc.h
+------>if you finding any problem then please run the code in your compiler or else use online compiler. I am sharing link below 
+for online compiler please click on the link--http://www.tutorialspoint.com/compile_c_online.php
+or else use this http://cpp.sh/
 ---------------------------------------------------------------------------------------------------------------
 Note : All the programs are tested under GCC compilers.
 It is assumed that,
@@ -430,8 +434,8 @@ the most recently assigned value will be taken.
 24. #define clrscr() 100
 main()
 {
-clrscr();
-printf("%d\n",clrscr());
+	clrscr();
+	printf("%d\n",clrscr());
 }
 
 Answer:
@@ -445,8 +449,8 @@ looks like this :
 25>
 main()
 {
-100;
-printf("%d\n",100);
+	100;
+	printf("%d\n",100);
 }
 
 Note: 100is an executable statement but with no action. So it doesn't give any
@@ -454,9 +458,12 @@ problem
 26
 main()
 {
-printf("%p",main);
-}8Answer:
+	printf("%p",main);
+}
+
+Answer:
 Some address will be printed.
+
 Explanation:
 Function names are just addresses (just like array names are addresses).
 main() is also a function. So the address of function main will be printed. %p in printf specifies
@@ -465,292 +472,338 @@ that the argument is an address. They are printed as hexadecimal numbers.
 27)
 main()
 {
-www.ittestpapers.com
-11clrscr();
+	clrscr();
 }
 clrscr();
+
 Answer:
-No output/error
+No output and no error
+
 Explanation:
 The first clrscr() occurs inside a function. So it becomes a function call. In the
 second clrscr(); is a function declaration (because it is not inside any
 function).
+--------------------------------------
 28)
 enum colors {BLACK,BLUE,GREEN}
 main()
 {
-printf("%d..%d..%d",BLACK,BLUE,GREEN);
-return(1);
+	printf("%d..%d..%d",BLACK,BLUE,GREEN);
+	return(1);
 }
+
 Answer:
 0..1..2
+
 Explanation:
 enum assigns numbers starting from 0, if not explicitly defined.
+-------------------------------------
 29)
 void main()
 {
-char far *farther,*farthest;
-printf("%d..%d",sizeof(farther),sizeof(farthest));
+	char far *farther,*farthest;
+	printf("%d..%d",sizeof(farther),sizeof(farthest));
 }
 Answer:
-4..2
+8..4
+
 Explanation:
-the second pointer is of char type and not a far pointer
+the second pointer is of char type and not a far pointer 
+-------------------------------------
 30)
 main()
-www.ittestpapers.com
-12{
-int i=400,j=300;
-printf("%d..%d");
+{
+	int i=400,j=300;
+	printf("%d..%d");
 }
+
 Answer:
-400..300
-Explanation:
-printf takes the values of the first two assignments of the program. Any
-number of printf's may be given. All of them take only the first two values. If
-more number of assignments given in the program,then printf will take
-garbage values.
+Garbage value..garbage value
+----------------------------------------
 31)
 main()
 {
-char *p;
-p="Hello";
-printf("%c\n",*&*p);
+	char *p;
+	p="Hello";
+	printf("%c\n",*&*p);
 }
+
 Answer:
 H
+
 Explanation:
 * is a dereference operator & is a reference operator. They can be
 applied
 any number of times provided it is meaningful. Here p points to the first
 character in the string "Hello". *p dereferences it and so its value is H. Again
 & references it to an address and * dereferences it to the value H.
+-----------------------------------------------------
 32)
 main()
 {
-int i=1;
-while (i<=5)
+	int i=1;
+	while (i<=5)
+	{
+		printf("%d",i);
+		if (i>2)
+		goto here;
+		i++;
+	}
+}
+fun()
 {
-printf("%d",i);
-if (i>2)
-goto here;
-i++;
+	here:
+	printf("PP");
 }
-}
-www.ittestpapers.com
-13fun()
-{
-here:
-printf("PP");
-}
+
 Answer:
 Compiler error: Undefined label 'here' in function main
+
 Explanation:
 Labels have functions scope, in other words the scope of the labels is limited
 to functions. The label 'here' is available in function fun() Hence it is not
 visible in function main.
-33)
+Note:if you want to jump to other function then use setjump
+------------------------------------
+33)---->important 
 main()
 {
-static char names[5][20]={"pascal","ada","cobol","fortran","perl"};
-int i;
-char *t;
-t=names[3];
-names[3]=names[4];
-names[4]=t;
-for (i=0;i<=4;i++)
-printf("%s",names[i]);
+	static char names[5][20]={"pascal","ada","cobol","fortran","perl"};
+	int i;
+	char *t;
+	t=names[3];
+	names[3]=names[4];
+	names[4]=t;
+	for (i=0;i<=4;i++)
+	printf("%s",names[i]);
 }
+
 Answer:
 Compiler error: Lvalue required in function main
+
 Explanation:
 Array names are pointer constants. So it cannot be modified.
+-----------------------------------------
 34)
 void main()
 {
-int i=5;
-printf("%d",i++ + ++i);
+	int i=5;
+	printf("%d",i++ + ++i);
 }
+
 Answer:
-Output Cannot be predicted exactly.
+Output Cannot be predicted exactly.it will vary with compiler..because in some compiler...it will do optimization like 2*i..and value
+of i will take latest value of i.
+
 Explanation:
 Side effects are involved in the evaluation of i
-www.ittestpapers.com
-1435)
+-----------------------------------------
+35)
 void main()
 {
-int i=5;
-printf("%d",i+++++i);
+	int i=5;
+	printf("%d",i+++++i);
 }
+
 Answer:
 Compiler Error
+
 Explanation:
 The expression i+++++i is parsed as i ++ ++ + i which is an illegal
 combination of operators.
+-----------------------------------------
 36)
 #include<stdio.h>
 main()
 {
-int i=1,j=2;
-switch(i)
-{
-case 1: printf("GOOD");
-break;
-case j: printf("BAD");
-break;
-}
+	int i=1,j=2;
+	switch(i)
+	{
+		case 1: printf("GOOD");
+		break;
+		case j: printf("BAD");
+		break;
+	}
 }
 Answer:
+
 Compiler Error: Constant expression required in function main.
+
 Explanation:
 The case statement can have only constant expressions (this implies that we
 cannot use variable names directly so an error).
 Note:
 Enumerated types can be used in case statements.
+------------------------------------------
 37)
 main()
 {
-int i;
-printf("%d",scanf("%d",&i)); // value 10 is given as input here
+	int i;
+	printf("%d",scanf("%d",&i)); // value 10 is given as input here
 }
-www.ittestpapers.com
-15Answer:
+
+Answer:
 1
+
 Explanation:
 Scanf returns number of items successfully read and not 1/0. Here 10 is
 given as input which should have been scanned successfully. So number of
 items read is 1.
+------------------------------------------
 38)
 #define f(g,g2) g##g2
 main()
 {
-int var12=100;
-printf("%d",f(var,12));
+	int var12=100;
+	printf("%d",f(var,12));//it will become var12
 }
+
 Answer:
 100
+Explanation:
+token pasting----or you can say like it will join to macro
+-----------------------------------------
 39)
 main()
 {
-int i=0;
-for(;i++;printf("%d",i)) ;
-printf("%d",i);
+	int i=0;
+	for(;i++;printf("%d",i)) ;
+	printf("%d",i);
 }
+
 Answer:
 1
+
 Explanation:
 before entering into the for loop the checking condition is "evaluated". Here it
 evaluates to 0 (false) and comes out of the loop, and i is incremented (note
 the semicolon after the for loop).
+----------------------------------------
 40)
 #include<stdio.h>
 main()
 {
-char s[]={'a','b','c','\n','c','\0'};
-char *p,*str,*str1;
-p=&s[3];
-str=p;
-www.ittestpapers.com
-16str1=s;
-printf("%d",++*p + ++*str1-32);
+	char s[]={'a','b','c','\n','c','\0'};
+	char *p,*str,*str1;
+	p=&s[3];
+	str=p;
+	str1=s;
+	printf("%d",++*p + ++*str1-32);
 }
+
 Answer:
 M
+
 Explanation:
 p is pointing to character '\n'.str1 is pointing to character 'a' ++*p
 meAnswer:"p is pointing to '\n' and that is incremented by one." the ASCII
 value of '\n' is 10. then it is incremented to 11. the value of ++*p is 11. ++*str1
 meAnswer:"str1 is pointing to 'a' that is incremented by 1 and it becomes 'b'.
 ASCII value of 'b' is 98. both 11 and 98 is added and result is subtracted from
-32.
-i.e. (11+98-32)=77("M");
+32. i.e. (11+98-32)=77("M");
+------------------------------------------
 41)
 #include<stdio.h>
 main()
 {
-struct xx
-{
-int x=3;
-char name[]="hello";
-};
-struct xx *s=malloc(sizeof(struct xx));
-printf("%d",s->x);
-printf("%s",s->name);
+	struct xx
+	{
+		int x=3;
+		char name[]="hello";//we can't initialize value inside structure..because memory is not allocated for that
+	};
+	struct xx *s=malloc(sizeof(struct xx));
+	printf("%d",s->x);
+	printf("%s",s->name);
 }
+
 Answer:
 Compiler Error
+
 Explanation:
 Initialization should not be done for structure members inside the structure
 declaration
-42)
+-------------------------------------
+42)same question as 18
 #include<stdio.h>
 main()
 {
-struct xx
-{
-www.ittestpapers.com
-17int x;
-struct yy
-{
-char s;
-struct xx *p;
-};
-struct yy *q;
-};
+	struct xx
+	{
+		int x;
+		struct yy
+		{
+			char s;
+			struct xx *p;
+		};
+		struct yy *q;
+	};
 }
+
 Answer:
 Compiler Error
+
 Explanation:
 in the end of nested structure yy a member have to be declared.
+-----------------------------------------------
 43)
 main()
 {
-extern int i;
-i=20;
-printf("%d",sizeof(i));
+	extern int i;
+	i=20;
+	printf("%d",sizeof(i));
 }
+
 Answer:
 Linker error: undefined symbol '_i'.
+
 Explanation:
 extern declaration specifies that the variable i is defined somewhere else.
 The compiler passes the external variable to be resolved by the linker. So
 compiler doesn't find an error. During linking the linker searches for the
 definition of i. Since it is not found the linker flags an error.
+---------------------------------------------
 44)
 main()
 {
 printf("%d", out);
 }
 int out=100;
+
 Answer:
 Compiler error: undefined symbol out in function main.
+
 Explanation:
-www.ittestpapers.com
-18The rule is that a variable is available for use from the point of declaration.
+The rule is that a variable is available for use from the point of declaration.
 Even though a is a global variable, it is not available for main. Hence an
 error.
+--------------------------------------------
 45)
 main()
 {
-extern out;
-printf("%d", out);
+	extern out;
+	printf("%d", out);
 }
 int out=100;
+
 Answer:
 100
+
 Explanation:
 This is the correct way of writing the previous program.
-46)
+--------------------------------------------
+46)--same question 
 main()
 {
-show();
+	show();
 }
 void show()
 {
-printf("I'm the greatest");
+	printf("I'm the greatest");
 }
+
 Answer:
 Compier error: Type mismatch in redeclaration of show.
+
 Explanation:
 When the compiler sees the function show it doesn't know anything about it.
 So the default return type (ie, int) is assumed. But when compiler sees the
@@ -760,17 +813,19 @@ The solutions are as follows:
 1. declare void show() in main() .
 2. define show() before main().
 3. declare extern void show() before the use of show().
+--------------------------------------
 47)
 main( )
 {
-www.ittestpapers.com
-19int a[2][3][2] = {{{2,4},{7,8},{3,4}},{{2,2},{2,3},{3,4}}};
-printf(“%u %u %u %d \n”,a,*a,**a,***a);
-printf(“%u %u %u %d \n”,a+1,*a+1,**a+1,***a+1);
+	int a[2][3][2] = {{{2,4},{7,8},{3,4}},{{2,2},{2,3},{3,4}}};
+	printf(“%u %u %u %d \n”,a,*a,**a,***a);
+	printf(“%u %u %u %d \n”,a+1,*a+1,**a+1,***a+1);
 }
+
 Answer:
 100, 100, 100, 2
 114, 104, 102, 3
+
 Explanation:
 The given array is a 3-D one. It can also be viewed as a 1-D array.
 2
@@ -792,49 +847,55 @@ for the second printf a+1 increases in the third dimension thus points to value
 at 114, *a+1 increments in second dimension thus points to 104, **a +1
 increments the first dimension thus points to 102 and ***a+1 first gets the
 value at first location and then increments it by 1. Hence, the output.
+note: for more clarity go through notes(vector)
+----------------------------------------
 48)
 main( )
 {
-int a[ ] = {10,20,30,40,50},j,*p;
-for(j=0; j<5; j++)
-{
-printf(“%d” ,*a);
-a++;
+	int a[ ] = {10,20,30,40,50},j,*p;
+	for(j=0; j<5; j++)
+	{
+		printf(“%d” ,*a);
+		a++;					//error due to this line.you cant increment the base address of array
+	}
+	p = a;
+	for(j=0; j<5; j++)
+	{
+		printf(“%d ” ,*p);
+		p++;
+	}
 }
-p = a;
-for(j=0; j<5; j++)
-{
-printf(“%d ” ,*p);
-p++;
-}
-}
+
 Answer:
-www.ittestpapers.com
-20Compiler error: lvalue required.
+Compiler error: lvalue required.
+
 Explanation:
 Error is in line with statement a++. The operand must be an lvalue and may
 be of any of scalar type for the any operator, array name only when
 subscripted is an lvalue. Simply array name is a non-modifiable lvalue.
-**49)
+-----------------------------------------------------------------------
+49)most important question 
 main( )
 {
-static int a[ ] = {0,1,2,3,4};
-int *p[ ] = {a,a+1,a+2,a+3,a+4};
-int **ptr = p;
-ptr++;
-printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
-*ptr++;
-printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
-*++ptr;
-printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
-++*ptr;
-printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
+	static int a[ ] = {0,1,2,3,4};
+	int *p[ ] = {a,a+1,a+2,a+3,a+4};
+	int **ptr = p;
+	ptr++;
+	printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
+	*ptr++;
+	printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
+	*++ptr;
+	printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
+	++*ptr;
+	printf(“\n %d %d %d”, ptr-p, *ptr-a, **ptr);
 }
+
 Answer:
 111
 222
 333
 344
+
 Explanation:
 Let us consider the array and the two pointers with some address
 a
@@ -855,8 +916,6 @@ p
 1004
 ptr
 1000
-www.ittestpapers.com
-21
 106
 1006
 108
@@ -878,14 +937,15 @@ After execution of ++*ptr value in ptr remains the same, the value pointed by
 the value is incremented by the scaling factor. So the value in array p at
 location 1006 changes from 106 10 108,. Hence, the outputs for the fourth
 printf are ptr – p = 1006 – 1000 = 3, *ptr – a = 108 – 100 = 4, **ptr = 4.
+-------------------------------------------------------------------
 50)
 main( )
 {
-char *q;
-int j;
-for (j=0; j<3; j++) scanf(“%s” ,(q+j));
-for (j=0; j<3; j++) printf(“%c” ,*(q+j));
-for (j=0; j<3; j++) printf(“%s” ,(q+j));
+	char *q;
+	int j;
+	for (j=0; j<3; j++) scanf(“%s” ,(q+j));
+	for (j=0; j<3; j++) printf(“%c” ,*(q+j));
+	for (j=0; j<3; j++) printf(“%s” ,(q+j));
 }
 Explanation:
 Here we have only one pointer to type char and since we take input in the
