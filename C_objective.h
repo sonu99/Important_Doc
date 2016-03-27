@@ -985,21 +985,23 @@ The first printf prints the values at the position q, q+1 and q+2 = M T V
 The second printf prints three strings starting from locations q, q+1, q+2
 i.e MTVIRTUAL, TVIRTUAL and VIRTUAL.
 -----------------------------------------------------------------------------
-51)
+51)Important question(void pointer)
 main( )
 {
-void *vp;
-char ch = ‘g’, *cp = “goofy”;
-int j = 20;
-vp = &ch;
-printf(“%c”, *(char *)vp);
-vp = &j;
-printf(“%d”,*(int *)vp);
-vp = cp;
-printf(“%s”,(char *)vp + 3);
+	void *vp;
+	char ch = ‘g’, *cp = “goofy”;
+	int j = 20;
+	vp = &ch;
+	printf(“%c”, *(char *)vp);
+	vp = &j;
+	printf(“%d”,*(int *)vp);
+	vp = cp;
+	printf(“%s”,(char *)vp + 3);
 }
+
 Answer:
 g20fy
+
 Explanation:
 Since a void pointer is used it can be type casted to any other type pointer.
 vp = &ch stores address of char ch and the next statement prints the value
@@ -1007,18 +1009,20 @@ stored in vp after type casting it to the proper data type pointer. the output i
 ‘g’. Similarly the output from second printf is ‘20’. The third printf statement
 th
 type casts it to print the string from the 4 value hence the output is ‘fy’.
+---------------------------------------------------------------------------------
 52)
 main ( )
 {
-static char *s[ ] = {“black”, “white”, “yellow”, “violet”};
-char **ptr[ ] = {s+3, s+2, s+1, s}, ***p;
-p = ptr;
-**++p;
-printf(“%s”,*--*++p + 3);
+	static char *s[ ] = {"black", "white", "yellow", "violet"};
+	char **ptr[ ] = {s+3, s+2, s+1, s}, ***p;
+	p = ptr;
+	**++p;
+	printf("%s",*--*++p + 3);
 }
-www.ittestpapers.com
-23Answer:
+    
+Answer:
 ck
+
 Explanation:
 In this problem we have an array of char pointers pointing to start of 4 strings.
 Then we have ptr which is a pointer to a pointer of type char and a variable p
@@ -1029,24 +1033,27 @@ causes gets value s+1 then the pre decrement is executed and we get s+1 –
 1 = s . the indirection operator now gets the value from the array of s and
 adds 3 to the starting address. The string is printed starting from this position.
 Thus, the output is ‘ck’.
+-----------------------------------------------------------------------------------
 53)
 main()
 {
-int i, n;
-char *x = “girl”;
-n = strlen(x);
-*x = x[n];
-for(i=0; i<n; ++i)
-{
-printf(“%s\n”,x);
-x++;
+	int i, n;
+	char *x = "girl";
+	n = strlen(x);
+	*x = x[n];
+	for(i=0; i<n; ++i)
+	{
+		printf("%s\n",x);
+		x++;
+	}
 }
-}
+
 Answer:
 (blank space)
 irl
 rl
 l
+
 Explanation:
 Here a string (a pointer to char) is initialized with a value “girl”. The strlen
 function returns the length of the string, thus n has a value 4. The next
@@ -1057,6 +1064,7 @@ www.ittestpapers.com
 24time x[0] = ‘\0’ hence it prints nothing and pointer value is incremented. The
 second time it prints from x[1] i.e “irl” and the third time it prints “rl” and the
 last time it prints “l” and the loop terminates.
+------------------------------------------------------------------------
 54)
 int i,j;
 for(i=0;i<=10;i++)
@@ -1064,9 +1072,11 @@ for(i=0;i<=10;i++)
 j+=5;
 assert(i<5);
 }
+
 Answer:
 Runtime error: Abnormal program termination.
 assert failed (i<5), <file name>,<line number>
+
 Explanation:
 asserts are used during debugging to make sure that certain conditions are
 satisfied. If assertion fails, the program will terminate reporting the same.
@@ -1074,6 +1084,7 @@ After debugging use,
 #undef NDEBUG
 and this will disable all the assertions from the source code. Assertion
 is a good debugging tool to make use of.
+--------------------------------------------------------------------------
 55)
 main()
 {
@@ -1081,113 +1092,134 @@ int i=-1;
 +i;
 printf("i = %d, +i = %d \n",i,+i);
 }
+
 Answer:
 i = -1, +i = -1
+
 Explanation:
 Unary + is the only dummy operator in C. Where-ever it comes you can just
 ignore it just because it has no effect in the expressions (hence the name
 dummy operator).
+---------------------------------------------------------------------------
 56)
 What are the files which are automatically opened when a C file is executed?
-Answer:
-stdin, stdout, stderr (standard input,standard output,standard error).
-www.ittestpapers.com
-2557) what will be the position of the file marker?
+Answer:stdin, stdout, stderr (standard input,standard output,standard error).
+---------------------------------------------------------------------------
+57) what will be the position of the file marker?
 a: fseek(ptr,0,SEEK_SET);
 b: fseek(ptr,0,SEEK_CUR);
+
 Answer :
-a: The SEEK_SET sets the file position marker to the starting of the file.
+a: The SEEK_SET sets the file position marker to the starting of the file.//2nd argument means no of bytes.
 b: The SEEK_CUR sets the file position marker to the current position
 of the file.
+----------------------------------------------------------------------------
 58)
 main()
 {
-char name[10],s[12];
-scanf(" \"%[^\"]\"",s);
+	char name[10],s[12];
+	scanf(" \"%[^\"]\"",s);
 }
 How scanf will execute?
+
 Answer:
 First it checks for the leading white space and discards it.Then it matches
 with a quotation mark and then it reads all character upto another quotation
 mark.
+----------------------------------------------------------------------------
 59)
 What is the problem with the following code segment?
 while ((fgets(receiving array,50,file_ptr)) != EOF)
 ;
+
 Answer & Explanation:
 fgets returns a pointer. So the correct end of file check is checking for !=
 NULL.
+----------------------------------------------------------------------------
 60)
 main()
 {
 main();
 }
+
 Answer:
 Runtime error : Stack overflow.
+
 Explanation:
 main function calls itself again and again. Each time the function is called its
 return address is stored in the call stack. Since there is no condition to
-www.ittestpapers.com
-26terminate the function call, the call stack overflows at runtime. So it
+terminate the function call, the call stack overflows at runtime. So it
 terminates the program and results in an error.
+-----------------------------------------------------------------------------
 61)
 main()
 {
-char *cptr,c;
-void *vptr,v;
-c=10; v=0;
-cptr=&c; vptr=&v;
-printf("%c%v",c,v);
+	char *cptr,c;
+	void *vptr,v;
+	c=10; v=0;
+	cptr=&c; vptr=&v;
+	printf("%c%v",c,v);
 }
+
 Answer:
 Compiler error (at line number 4): size of v is Unknown.
+
 Explanation:
 You can create a variable of type void * but not of type void, since void is an
 empty type. In the second line you are creating variable vptr of type void *
 and v of type void hence an error.
+-----------------------------------------------------------------------------
 62)
 main()
 {
-char *str1="abcd";
-char str2[]="abcd";
-printf("%d %d %d",sizeof(str1),sizeof(str2),sizeof("abcd"));
+	char *str1="abcd";
+	char str2[]="abcd";
+	printf("%d %d %d",sizeof(str1),sizeof(str2),sizeof("abcd"));
 }
+
 Answer:
-2 5 5
+4 5 5
+
 Explanation:
 In first sizeof, str1 is a character pointer so it gives you the size of the pointer
 variable. In second sizeof the name str2 indicates the name of the array
 whose size is 5 (including the '\0' termination character). The third sizeof is
 similar to the second one.
+------------------------------------------------------------------------------
 63)
 main()
 {
-char not;
-not=!2;
-printf("%d",not);
-www.ittestpapers.com
-27}
+	char not;
+	not=!2;
+	printf("%d",not);
+}
+
 Answer:
 0
+
 Explanation:
 ! is a logical operator. In C the value 0 is considered to be the boolean value
 FALSE, and any non-zero value is considered to be the boolean value
 TRUE. Here 2 is a non-zero value so TRUE. !TRUE is FALSE (0) so it prints
 0.
+-----------------------------------------------------------------------------
 64)
 #define FALSE -1
 #define TRUE 1
 #define NULL 0
-main() {
-if(NULL)
-puts("NULL");
-else if(FALSE)
-puts("TRUE");
-else
-puts("FALSE");
+main()
+{
+	if(NULL)
+	puts("NULL");
+	else if(FALSE)
+	puts("TRUE");
+	else
+	puts("FALSE");
 }
+
 Answer:
 TRUE
+
 Explanation:
 The input program to the compiler after processing by the preprocessor is,
 main(){
@@ -1201,71 +1233,80 @@ puts("FALSE");
 Preprocessor doesn't replace the values given inside the double quotes. The
 check by if condition is boolean value false so it goes to else. In second if -1
 is boolean value true hence "TRUE" is printed.
+-----------------------------------------------------------------------------
 65)
 main()
-www.ittestpapers.com
-28{
-int k=1;
-printf("%d==1 is ""%s",k,k==1?"TRUE":"FALSE");
+{
+	int k=1;
+	printf("%d==1 is ""%s",k,k==1?"TRUE":"FALSE");
 }
 Answer:
 1==1 is TRUE
+
 Explanation:
 When two strings are placed together (or separated by white-space) they are
 concatenated (this is called as "stringization" operation). So the string is as if
 it is given as "%d==1 is %s". The conditional operator( ?: ) evaluates to
 "TRUE".
+------------------------------------------------------------------------------
 66)
 main()
 {
-int y;
-scanf("%d",&y); // input given is 2000
-if( (y%4==0 && y%100 != 0) || y%100 == 0 )
-printf("%d is a leap year");
-else
-printf("%d is not a leap year");
+	int y;
+	scanf("%d",&y); // input given is 2000
+	if( (y%4==0 && y%100 != 0) || y%100 == 0 )
+	printf("%d is a leap year");
+	else
+	printf("%d is not a leap year");
 }
+
 Answer:
 2000 is a leap year
+
 Explanation:
 An ordinary program to check if leap year or not.
+-------------------------------------------------------------------------------
 67)
 #define max 5
 #define int arr1[max]
 main()
 {
-typedef char arr2[max];
-arr1 list={0,1,2,3,4};
-arr2 name="name";
-printf("%d %s",list[0],name);
+	typedef char arr2[max];
+	arr1 list={0,1,2,3,4};
+	arr2 name="name";
+	printf("%d %s",list[0],name);
 }
+
 Answer:
 Compiler error (in the line arr1 list = {0,1,2,3,4})
-www.ittestpapers.com
-29Explanation:
+
+Explanation:
 arr2 is declared of type array of size 5 of characters. So it can be used to
 declare the variable name of the type arr2. But it is not the case of arr1.
 Hence an error.
 Rule of Thumb:
 #defines are used for textual replacement whereas typedefs are used for
 declaring new types.
+--------------------------------------------------------------------------------
 68)
 int i=10;
 main()
 {
-extern int i;
-{
-int i=20;
-{
-const volatile unsigned i=30;
-printf("%d",i);
+	extern int i;
+	{
+		int i=20;
+		{
+			const volatile unsigned i=30;
+			printf("%d",i);
+		}
+		printf("%d",i);
+	}
+	printf("%d",i);
 }
-printf("%d",i);
-}
-printf("%d",i);
-}
+
 Answer:
 30,20,10
+
 Explanation:
 '{' introduces new block and thus new scope. In the innermost block i is
 declared as,
@@ -1275,221 +1316,253 @@ next block, i has value 20 and so printf prints 20. In the outermost block, i is
 declared as extern, so no storage space is allocated for it. After compilation
 is over the linker resolves it to global variable i (since it is the only variable
 visible there). So it prints i's value as 10.
+----------------------------------------------------------------------------------
 69)
 main()
 {
-int *j;
-www.ittestpapers.com
-30{
-int i=10;
-j=&i;
+	int *j;
+	{
+		int i=10;
+		j=&i;
+	}
+	printf("%d",*j);//printf("%d",i)----->now it will throw error because i is not declared in scope.
 }
-printf("%d",*j);
-}
+
 Answer:
 10
+
 Explanation:
 The variable i is a block level variable and the visibility is inside that block
 only. But the lifetime of i is lifetime of the function so it lives upto the exit of
 main function. Since the i is still allocated space, *j prints the value stored in i
 since j points i.
+------------------------------------------------------------------------------------
 70)
 main()
 {
-int i=-1;
--i;
-printf("i = %d, -i = %d \n",i,-i);
+	int i=-1;
+	-i;
+	printf("i = %d, -i = %d \n",i,-i);
 }
+
 Answer:
 i = -1, -i = 1
+
 Explanation:
 -i is executed and this execution doesn't affect the value of i. In printf first you
 just print the value of i. After that the value of the expression -i = -(-1) is
 printed.
+------------------------------------------------------------------------------------
 71)
 #include<stdio.h>
 main()
 {
-const int i=4;
-float j;
-j = ++i;
-printf("%d %f", i,++j);
+	const int i=4;
+	float j;
+	j = ++i;
+	printf("%d %f", i,++j);
 }
+
 Answer:
 Compiler error
-www.ittestpapers.com
-31Explanation:
+
+Explanation:
 i is a constant. you cannot change the value of constant
-72)
+---------------------------------------------------------------------------------------
+72)Same question....
 #include<stdio.h>
 main()
 {
-int a[2][2][2] = { {10,2,3,4}, {5,6,7,8} };
-int *p,*q;
-p=&a[2][2][2];
-*q=***a;
-printf("%d..%d",*p,*q);
+	int a[2][2][2] = { {10,2,3,4}, {5,6,7,8} };
+	int *p,*q;
+	p=&a[2][2][2];
+	*q=***a;
+	printf("%d..%d",*p,*q);
 }
+
 Answer:
 garbagevalue..1
+
 Explanation:
 p=&a[2][2][2] you declare only two 2D arrays. but you are trying to access
 the third 2D(which you are not declared) it will print garbage values. *q=***a
 starting address of a is assigned integer pointer. now q is pointing to starting
 address of a.if you print *q meAnswer:it will print first element of 3D array.
+---------------------------------------------------------------------------------------
 73)
 #include<stdio.h>
 main()
 {
-register i=5;
-char j[]= "hello";
-printf("%s %d",j,i);
+	register i=5;
+	char j[]= "hello";
+	printf("%s %d",j,i);
 }
+
 Answer:
 hello 5
+
 Explanation:
 if you declare i as register compiler will treat it as ordinary integer and it will
 take integer value. i value may be stored either in register or in memory.
-74)
+----------------------------------------------------------------------------------------
+74)Important question
 main()
 {
-int i=5,j=6,z;
-printf("%d",i+++j);
-www.ittestpapers.com
-32}
+	int i=5,j=6,z;
+	printf("%d",i+++j);
+}
+
 Answer:
 11
+
 Explanation:
 the expression i+++j is treated as (i++ + j)
+------------------------------------------------------------------------------------------
 76)
 struct aaa{
-struct aaa *prev;
-int i;
-struct aaa *next;
+	struct aaa *prev;
+	int i;
+	struct aaa *next;
 };
 main()
 {
-struct aaa abc,def,ghi,jkl;
-int x=100;
-abc.i=0;abc.prev=&jkl;
-abc.next=&def;
-def.i=1;def.prev=&abc;def.next=&ghi;
-ghi.i=2;ghi.prev=&def;
-ghi.next=&jkl;
-jkl.i=3;jkl.prev=&ghi;jkl.next=&abc;
-x=abc.next->next->prev->next->i;
-printf("%d",x);
+	struct aaa abc,def,ghi,jkl;
+	int x=100;
+	abc.i=0;abc.prev=&jkl;
+	abc.next=&def;
+	def.i=1;def.prev=&abc;def.next=&ghi;
+	ghi.i=2;ghi.prev=&def;
+	ghi.next=&jkl;
+	jkl.i=3;jkl.prev=&ghi;jkl.next=&abc;
+	x=abc.next->next->prev->next->i;
+	printf("%d",x);
 }
+
 Answer:
 2
+
 Explanation:
 above all statements form a double circular linked list;
 abc.next->next->prev->next->i
 this one points to "ghi" node the value of at particular node is 2.
+--------------------------------------------------------------------------------------------
 77)
 struct point
 {
-int x;
-int y;
+	int x;
+	int y;
 };
 struct point origin,*pp;
-www.ittestpapers.com
-33main()
+main()
 {
-pp=&origin;
-printf("origin is(%d%d)\n",(*pp).x,(*pp).y);
-printf("origin is (%d%d)\n",pp->x,pp->y);
+	pp=&origin;
+	printf("origin is(%d%d)\n",(*pp).x,(*pp).y);
+	printf("origin is (%d%d)\n",pp->x,pp->y);
 }
 Answer:
 origin is(0,0)
 origin is(0,0)
+
 Explanation:
 pp is a pointer to structure. we can access the elements of the structure
 either with arrow mark or with indirection operator.
 Note:
 Since structure point is globally declared x & y are initialized as zeroes
+------------------------------------------------------------------------------------------
 78)
 main()
 {
-int i=_l_abc(10);
-printf("%d\n",--i);
+	int i=_l_abc(10);
+	printf("%d\n",--i);
 }
 int _l_abc(int i)
 {
-return(i++);
+	return(i++);
 }
+
 Answer:
 9
+
 Explanation:
 return(i++) it will first return i and then increments. i.e. 10 will be returned.
+------------------------------------------------------------------------------------------
 79)
 main()
 {
-char *p;
-int *q;
-long *r;
-p=q=r=0;
-p++;
-www.ittestpapers.com
-34q++;
-r++;
-printf("%p...%p...%p",p,q,r);
+	char *p;
+	int *q;
+	long *r;
+	p=q=r=0;
+	p++;
+	q++;
+	r++;
+	printf("%p...%p...%p",p,q,r);
 }
+
 Answer:
-0001...0002...0004
+0001...0004...0008
+
 Explanation:
 ++ operator when applied to pointers increments address according to their
 corresponding data-types.
+-----------------------------------------------------------------------------------------
 80)
 main()
 {
-char c=' ',x,convert(z);
-getc(c);
-if((c>='a') && (c<='z'))
-x=convert(c);
-printf("%c",x);
+	char c=' ',x,convert(z);
+	getc(c);
+	if((c>='a') && (c<='z'))
+	x=convert(c);
+	printf("%c",x);
 }
 convert(z)
 {
-return z-32;
+	return z-32;
 }
+
 Answer:
 Compiler error
+
 Explanation:
 declaration of convert and format of getc() are wrong.
+-------------------------------------------------------------------------------------------
 81)
 main(int argc, char **argv)
 {
-printf("enter the character");
-getchar();
-sum(argv[1],argv[2]);
+	printf("enter the character");
+	getchar();
+	sum(argv[1],argv[2]);
 }
-sum(num1,num2)
-int num1,num2;
+sum(int num1,int num2)
 {
-return num1+num2;
-www.ittestpapers.com
-35}
+	return num1+num2;
+}
+
 Answer:
 Compiler error.
+
 Explanation:
 argv[1] & argv[2] are strings. They are passed to the function sum without
 converting it to integer values.
+-------------------------------------------------------------------------------------------
 82)
 # include <stdio.h>
 int one_d[]={1,2,3};
 main()
 {
-int *ptr;
-ptr=one_d;
-ptr+=3;
-printf("%d",*ptr);
+	int *ptr;
+	ptr=one_d;
+	ptr+=3;
+	printf("%d",*ptr);
 }
+
 Answer:
 garbage value
+
 Explanation:
 ptr pointer is pointing to out of the array range of one_d.
-83)
+------------------------------------------------------------------------------------------
+83)Important question
 # include<stdio.h>
 aaa() {
 printf("hi");
@@ -1506,36 +1579,41 @@ int (*ptr[3])();
 ptr[0]=aaa;
 ptr[1]=bbb;
 ptr[2]=ccc;
-www.ittestpapers.com
-36ptr[2]();
+ptr[2]();
 }
+
 Answer:
 bye
+
 Explanation:
 ptr is array of pointers to functions of return type int.ptr[0] is assigned to
 address of the function aaa. Similarly ptr[1] and ptr[2] for bbb and ccc
 respectively. ptr[2]() is in effect of writing ccc(), since ptr[2] points to ccc.
+---------------------------------------------------------------------------------------
 85)
 #include<stdio.h>
 main()
 {
-FILE *ptr;
-char i;
-ptr=fopen("zzz.c","r");
-while((i=fgetch(ptr))!=EOF)
-printf("%c",i);
+	FILE *ptr;
+	char i;
+	ptr=fopen("zzz.c","r");
+	while((i=fgetch(ptr))!=EOF)
+	printf("%c",i);
 }
+
 Answer:
 contents of zzz.c followed by an infinite loop
+
 Explanation:
 The condition is checked against EOF, it should be checked against NULL.
+------------------------------------------------------------------------------------
 86)
 main()
 {
-int i =0;j=0;
-if(i && j++)
-printf("%d..%d",i++,j);
-printf("%d..%d,i,j);
+	int i =0;j=0;
+	if(i && j++)
+	printf("%d..%d",i++,j);
+	printf("%d..%d",i,j);
 }
 Answer:
 0..0
@@ -1543,37 +1621,42 @@ Explanation:
 The value of i is 0. Since this information is enough to determine the truth
 value of the boolean expression. So the statement following the if statement
 is not executed. The values of i and j remain unchanged and get printed.
-www.ittestpapers.com
-3787)
+-----------------------------------------------------------------------------------
+87)
 main()
 {
-int i;
-i = abc();
-printf("%d",i);
+	int i;
+	i = abc();
+	printf("%d",i);
 }
 abc()
 {
-_AX = 1000;
+	_AX = 1000;
 }
+
 Answer:
 1000
+
 Explanation:
 Normally the return value from the function is through the information from
 the accumulator. Here _AH is the pseudo global variable denoting the
 accumulator. Hence, the value of the accumulator is set 1000 so the function
 returns value 1000.
+---------------------------------------------------------------------------------
 88)
 int i;
 main(){
-int t;
-for ( t=4;scanf("%d",&i)-t;printf("%d\n",i))
-printf("%d--",t--);
+	int t;
+	for ( t=4;scanf("%d",&i)-t;printf("%d\n",i))
+	printf("%d--",t--);
 }
 // If the inputs are 0,1,2,3 find the o/p
+
 Answer:
 4--0
 3--1
 2--2
+
 Explanation:
 Let us assume some x= scanf("%d",&i)-t the values during execution
 will be,
@@ -1581,48 +1664,60 @@ t i x
 4 0 -4
 3 1 -2
 2 2 0
-www.ittestpapers.com
-3889)
+----------------------------------------------------------------------------------
+89)
 main(){
-int a= 0;int b = 20;char x =1;char y =10;
-if(a,b,x,y)
-printf("hello");
+	int a= 0;
+	int b = 20;
+	char x =1;
+	char y =10;
+	if(a,b,x,y)
+	printf("hello");
 }
+
 Answer:
 hello
+
 Explanation:
 The comma operator has associativity from left to right. Only the rightmost
 value is returned and the other values are evaluated and ignored. Thus the
 value of last variable y is returned to check in if. Since it is a non zero value if
 becomes true so, "hello" will be printed.
+------------------------------------------------------------------------------------
 90)
 main(){
-unsigned int i;
-for(i=1;i>-2;i--)
-printf("c aptitude");
+	unsigned int i;
+	for(i=1;i>-2;i--)
+	printf("c aptitude");
 }
+ANS:
+ no Output
+
 Explanation:
 i is an unsigned integer. It is compared with a signed value. Since the both
 types doesn't match, signed is promoted to unsigned value. The unsigned
 equivalent of -2 is a huge value so condition becomes false and control
 comes out of the loop.
+------------------------------------------------------------------------------------
 91)
 In the following pgm add a stmt in the function fun such that the address of
 'a' gets stored in 'j'.
 main(){
-int * j;
-void fun(int **);
-fun(&j);
+	int * j;
+	void fun(int **);
+	fun(&j);
 }
 void fun(int **k) {
 int a =0;
 /* add a stmt here*/
 }
+
 Answer:
 *k = &a
-www.ittestpapers.com
-39Explanation:
+
+Explanation:
 The argument of the function is a pointer to a pointer.
+---------------------------------------------------------------------------------------
 92)
 What are the following notations of defining functions known as?
 i.
@@ -1639,55 +1734,69 @@ int a; float b;
 Answer:
 i. ANSI C notation
 ii. Kernighan & Ritche notation
+-----------------------------------------------------------------------------------------
 93)
 main()
 {
-char *p;
-p="%d\n";
-p++;
-p++;
-printf(p-2,300);
+	char *p;
+	p="%d\n";
+	p++;
+	p++;
+	printf(p-2,300);
 }
+
 Answer:
 300
+
 Explanation:
 The pointer points to % since it is incremented twice and again decremented
 by 2, it points to '%d\n' and 300 is printed.
+--------------------------------------------------------------------------------------
 94)
-main(){
-char a[100];
-a[0]='a';a[1]]='b';a[2]='c';a[4]='d';
-abc(a);
+void abc(char*);
+ main(){
+	char a[100];
+	a[0]='a';
+	a[1]='b';
+	a[2]='c';
+	a[4]='d';
+	abc(a);
 }
-abc(char a[]){
-www.ittestpapers.com
-40a++;
-printf("%c",*a);
-a++;
-printf("%c",*a);
+void abc(char a[])
+{
+	a++;
+	printf("%c",*a);
+	a++;
+	printf("%c",*a);
 }
+ANS:
+bc
+
 Explanation:
 The base address is modified only in function and as a result a points to 'b'
 then after incrementing to 'c' so bc will be printed.
+--------------------------------------------------------------------------------------
 95)
 func(a,b)
 int a,b;
 {
-return( a= (a==b) );
+	return( a= (a==b) );
 }
 main()
 {
-int process(),func();
-printf("The value of process is %d !\n ",process(func,3,6));
+	int process(),func();
+	printf("The value of process is %d !\n ",process(func,3,6));
 }
 process(pf,val1,val2)
 int (*pf) ();
 int val1,val2;
 {
-return((*pf) (val1,val2));
+	return((*pf) (val1,val2));
 }
+
 Answer:
 The value if process is 0 !
+
 Explanation:
 The function 'process' has 3 parameters - 1, a pointer to another function 2
 and 3, integers. When this function is invoked from main, the following
@@ -1697,8 +1806,8 @@ function 'func'. The function func has two integer parameters. The formal
 parameters are substituted as 3 for a and 6 for b. since 3 is not equal to 6,
 a==b returns 0. therefore the function returns 0 which in turn is returned by
 the function 'process'.
-www.ittestpapers.com
-4196)
+--------------------------------------------------------------------------------------
+96)
 void main()
 {
 static int i=5;
