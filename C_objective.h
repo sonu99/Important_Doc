@@ -1699,7 +1699,7 @@ types doesn't match, signed is promoted to unsigned value. The unsigned
 equivalent of -2 is a huge value so condition becomes false and control
 comes out of the loop.
 ------------------------------------------------------------------------------------
-91)
+91)please don't see it.
 In the following pgm add a stmt in the function fun such that the address of
 'a' gets stored in 'j'.
 main(){
@@ -1776,7 +1776,7 @@ Explanation:
 The base address is modified only in function and as a result a points to 'b'
 then after incrementing to 'c' so bc will be printed.
 --------------------------------------------------------------------------------------
-95)
+95)Important question
 func(a,b)
 int a,b;
 {
@@ -1795,7 +1795,7 @@ int val1,val2;
 }
 
 Answer:
-The value if process is 0 !
+The value of process is 0 !
 
 Explanation:
 The function 'process' has 3 parameters - 1, a pointer to another function 2
@@ -1807,35 +1807,40 @@ parameters are substituted as 3 for a and 6 for b. since 3 is not equal to 6,
 a==b returns 0. therefore the function returns 0 which in turn is returned by
 the function 'process'.
 --------------------------------------------------------------------------------------
-96)
+96)important question on static variable value retain in function call 
 void main()
 {
-static int i=5;
-if(--i){
-main();
-printf("%d ",i);
+	static int i=5;
+	if(--i){
+		main();
+		printf("%d ",i);
+	}
 }
-}
+
 Answer:
 0 0 0 0
+
 Explanation:
 The variable "I" is declared as static, hence memory for I will be allocated for
 only once, as it encounters the statement. The function main() will be called
 recursively unless I becomes equal to 0, and since main() is recursively called, so the
 value of static I ie., 0 will be printed every time the control is returned.
+------------------------------------------------------------------------------------
 97)
 void main()
 {
-int k=ret(sizeof(float));
-printf("\n here value is %d",++k);
+	int k=ret(sizeof(float));
+	printf("\n here value is %d",++k);
 }
 int ret(int ret)
 {
-ret += 2.5;
-return(ret);
+	ret += 2.5;
+	return(ret);
 }
+
 Answer:
 Here value is 7
+
 Explanation:
 The int ret(int ret), ie., the function name and the argument name can be the
 same.
@@ -1843,59 +1848,69 @@ Firstly, the function ret() is called in which the sizeof(float) ie., 4 is passe
 after the first expression the value in ret will be 6, as ret is integer hence the value
 stored in ret will have implicit type conversion from float to int. The ret is returned in
 main() it is printed after and preincrement.
+-------------------------------------------------------------------------------
 98)
 void main()
-www.ittestpapers.com
-42{
-char a[]="12345\0";
-int i=strlen(a);
-printf("here in 3 %d\n",++i);
+{
+	char a[]="12345\0";
+	int i=strlen(a);
+	printf("here in 3 %d\n",++i);
 }
+
 Answer:
 here in 3 6
+
 Explanation:
 The char array 'a' will hold the initialized string, whose length will be counted
 from 0 till the null character. Hence the 'I' will hold the value equal to 5, after the pre-
 increment in the printf statement, the 6 will be printed.
+------------------------------------------------------------------------------------------------------------------
 99)
 void main()
 {
-unsigned giveit=-1;
-int gotit;
-printf("%u ",++giveit);
-printf("%u \n",gotit=--giveit);
+	unsigned giveit=-1;
+	int gotit;
+	printf("%u ",++giveit);
+	printf("%u \n",gotit=--giveit);
 }
+
 Answer:
 0 65535
+
 Explanation:
+--------------------------------------------------------------------------------------
 100)
 void main()
 {
-int i;
-char a[]="\0";
-if(printf("%s\n",a))
-printf("Ok here \n");
-else
-printf("Forget it\n");
+	int i;
+	char a[]="\0";
+	if(printf("%s\n",a))
+	printf("Ok here \n");
+	else
+	printf("Forget it\n");
 }
+
 Answer:
 Ok here
+
 Explanation:
-www.ittestpapers.com
-43Printf will return how many characters does it print. Hence printing a
+Printf will return how many characters does it print. Hence printing a
 null character returns 1 which makes the if statement true, thus "Ok
 here" is printed.
+-------------------------------------------------------------------------------------
 101)
 void main()
 {
-void *v;
-int integer=2;
-int *i=&integer;
-v=i;
-printf("%d",(int*)*v);
+	void *v;
+	int integer=2;
+	int *i=&integer;
+	v=i;
+	printf("%d",(int*)*v);
 }
+
 Answer:
-Compiler Error. We cannot apply indirection on type void*.
+Compiler Error. We cannot apply indirection on type void*.------better to use *(int*)v it won't give any error
+
 Explanation:
 Void pointer is a generic pointer type. No pointer arithmetic can be done
 on it. Void pointers are normally used for,
@@ -1903,106 +1918,125 @@ on it. Void pointers are normally used for,
 2. As a intermediate pointer type.
 3. Used when the exact pointer type will be known at a later point of
 time.
+--------------------------------------------------------------------
 102)
 void main()
 {
-int i=i++,j=j++,k=k++;
-printf(“%d%d%d”,i,j,k);
+	int i=i++,j=j++,k=k++;
+	printf(“%d%d%d”,i,j,k);
 }
+
 Answer:
 Garbage values.
+
 Explanation:
 An identifier is available to use in program code from the point of its
 declaration.
 So expressions such as i = i++ are valid statements. The i, j and k are
 automatic variables and so they contain some garbage value. Garbage in is
 garbage out (GIGO).
-www.ittestpapers.com
-44103)
+-----------------------------------------------------------------------
+103)
 void main()
 {
-static int i=i++, j=j++, k=k++;
-printf(“i = %d j = %d k = %d”, i, j, k);
+	static int i=i++, j=j++, k=k++;
+	printf(“i = %d j = %d k = %d”, i, j, k);
 }
+
 Answer:
 i = 1 j = 1 k = 1
+
 Explanation:
 Since static variables are initialized to zero by default.
+-------------------------------------------------------------------
 104)
 void main()
 {
-while(1){
-if(printf("%d",printf("%d")))
-break;
-else
-continue;
+	while(1){
+		if(printf("%d",printf("%d")))
+		break;
+		else
+		continue;
+	}
 }
-}
+
 Answer:
 Garbage values
+
 Explanation:
 The inner printf executes first to print some garbage value. The printf returns
 no of characters printed and this value also cannot be predicted. Still the
 outer printf
 prints something and so returns a non-zero value. So it
 encounters the break statement and comes out of the while statement.
+------------------------------------------------------------------------------------
 104)
 main()
 {
-unsigned int i=10;
-while(i-->=0)
-printf("%u ",i);
+	unsigned int i=10;
+	while(i-->=0)
+	printf("%u ",i);
 }
+
 Answer:
 10 9 8 7 6 5 4 3 2 1 0 65535 65534.....
+
 Explanation:
-www.ittestpapers.com
-45Since i is an unsigned integer it can never become negative. So the
+Since i is an unsigned integer it can never become negative. So the
 expression i-- >=0 will always be true, leading to an infinite loop.
+--------------------------------------------------------------------------------
 105)
 #include<conio.h>
 main()
 {
-int x,y=2,z,a;
-if(x=y%2) z=2;
-a=2;
-printf("%d %d ",z,x);
+	int x,y=2,z,a;
+	if(x=y%2) z=2;
+	a=2;
+	printf("%d %d ",z,x);
 }
+
 Answer:
 Garbage-value 0
+
 Explanation:
 The value of y%2 is 0. This value is assigned to x. The condition reduces to if
 (x) or in other words if(0) and so z goes uninitialized.
 Thumb Rule: Check all control paths to write bug free code.
+--------------------------------------------------------------------------------
 106)
 main()
 {
-int a[10];
-printf("%d",*a+1-*a+3);
+	int a[10];
+	printf("%d",*a+1-*a+3);
 }
+
 Answer:
 4
+
 Explanation:
 *a and -*a cancels out. The result is as simple as 1 + 3 = 4 !
+-----------------------------------------------------------------------------------------
 107)
 #define prod(a,b) a*b
 main()
 {
-int x=3,y=4;
-printf("%d",prod(x+2,y-1));
+	int x=3,y=4;
+	printf("%d",prod(x+2,y-1));
 }
+
 Answer:
 10
+
 Explanation:
-www.ittestpapers.com
-46The macro expands and evaluates to as:
+The macro expands and evaluates to as:
 x+2*y-1 => x+(2*y)-1 => 10
+-------------------------------------------------------------------------------------
 108)
 main()
 {
-unsigned int i=65000;
-while(i++!=0);
-printf("%d",i);
+	unsigned int i=65000;
+	while(i++!=0);
+	printf("%d",i);
 }
 Answer:
 1
@@ -2010,13 +2044,14 @@ Explanation:
 Note the semicolon after the while statement. When the value of i becomes 0
 it comes out of while loop. Due to post-increment on i the value of i while
 printing is 1.
+--------------------------------------------------------------------------------------
 109)
 main()
 {
-int i=0;
-while(+(+i--)!=0)
-i-=i++;
-printf("%d",i);
+	int i=0;
+	while(+(+i--)!=0)
+	i-=i++;
+	printf("%d",i);
 }
 Answer:
 -1
@@ -2026,43 +2061,49 @@ expression and now the while loop is,
 while(i--!=0) which is false and so
 breaks out of while loop. The value –1 is printed due to the post-decrement
 operator.
+----------------------------------------------------------------------------------
 113)
 main()
 {
-float f=5,g=10;
-enum{i=10,j=20,k=50};
-printf("%d\n",++k);
-printf("%f\n",f<<2);
-www.ittestpapers.com
-47printf("%lf\n",f%g);
-printf("%lf\n",fmod(f,g));
+	float f=5,g=10;
+	enum{i=10,j=20,k=50};
+	printf("%d\n",++k);
+	printf("%f\n",f<<2);
+	printf("%lf\n",f%g);
+	printf("%lf\n",fmod(f,g));
 }
+
 Answer:
 Line no 5: Error: Lvalue required
 Line no 6: Cannot apply leftshift to float
 Line no 7: Cannot apply mod to float
+
 Explanation:
 Enumeration constants cannot be modified, so you cannot apply ++.
 Bit-wise operators and % operators cannot be applied on float values.
 fmod() is to find the modulus values for floats as % operator is for ints.
+------------------------------------------------------------------------------
 110)
 main()
 {
-int i=10;
-void pascal f(int,int,int);
-f(i++,i++,i++);
-printf(" %d",i);
+	int i=10;
+	void pascal f(int,int,int);
+	f(i++,i++,i++);
+	printf(" %d",i);
 }
 void pascal f(integer :i,integer:j,integer :k)
 {
-write(i,j,k);
+	write(i,j,k);
 }
+
 Answer:
 Compiler error: unknown type integer
 Compiler error: undeclared function write
+
 Explanation:
 Pascal keyword doesn’t mean that pascal code can be used. It means that
 the function follows Pascal argument passing mechanism in calling the functions.
+----------------------------------------------------
 111)
 void pascal f(int i,int j,int k)
 {
@@ -2071,8 +2112,7 @@ printf(“%d %d %d”,i, j, k);
 void cdecl f(int i,int j,int k)
 {
 printf(“%d %d %d”,i, j, k);
-www.ittestpapers.com
-48}
+}
 main()
 {
 int i=10;
