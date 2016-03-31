@@ -1,4 +1,4 @@
-..//Question--*****************************************************************************************************************************
+//Question--*****************************************************************************************************************************
 
 //Q..What is C language?
 	The C programming language is a standardized programming language developed in the early 1970s by Ken Thompson and Dennis Ritchie for 		use on the UNIX operating system. It has since spread to many other operating systems, and is one of the most widely used programming 		languages. C is prized for its efficiency, and is the most popular programming language for writing system software, though it is also 		used for writing applications. ... 
@@ -80,9 +80,16 @@ Note:-scanf will return number of
 //Question-*********************************************************************************************************************************
 
 //Q>What is the output of printf("%d")? 
-	1. When we write printf("%d",x); this means compiler will print the value of x. But as here, there is nothing after ï¿½%dï¿½ so 		compiler will show in output window garbage value. 
+	1. When we write printf("%d",x); this means compiler will print the value of x. But as here, there is nothing after %d
+	so compiler will show in output window garbage value. 
 
-	2. When we use %d the compiler internally uses it to access the argument in the stack (argument stack). Ideally compiler determines the 	offset of the data variable depending on the format specification string. Now when we write printf("%d",a) then compiler first accesses 	the top most element in the argument stack of the printf which is %d and depending on the format string it calculated to offset to the 		actual data variable in the memory which is to be printed. Now when only %d will be present in the printf then compiler will calculate 		the correct offset (which will be the offset to access the integer variable) but as the actual data object is to be printed is not 		present at that memory location so it will print what ever will be the contents of that memory location. 
+	2. When we use %d the compiler internally uses it to access the argument in the stack (argument stack).
+	Ideally compiler determines the offset of the data variable depending on the format specification string.
+	Now when we write printf("%d",a) then compiler first accesses the top most element in the argument stack of the printf
+	which is %d and depending on the format string it calculated to offset to the actual data variable in the memory which is to be printed.
+	Now when only %d will be present in the printf then compiler will calculate the correct offset(which will be the offset to access the integer variable)
+	but as the actual data object is to be printed is not present at that memory location
+	so it will print what ever will be the contents of that memory location. 
 
 	3. Some compilers check the format string and will generate an error without the proper number and type of arguments for things like 		printf(...) and scanf(...). 
 
@@ -219,3 +226,4 @@ Ans..The register modifier hints to the compiler that the variable will be heavi
 	In fact, many compilers actually ignore the register modifier, which is perfectly legal, because it is only a hint and not a directive.
 
 //********************************************************************************************************************************************
+Notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Function::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
