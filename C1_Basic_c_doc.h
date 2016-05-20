@@ -75,7 +75,7 @@ C is block structure language..
 2>  gets()-----------------puts()----------------------Convert '\n' to '\0' 
 3>  scanf()----------------printf()---------------------same as getchar and putchar.
 note:-getchar and scanf both have same type of data entry process.
-Note:-printf will return number of character(Bytes) written on output console..
+Note:-printf will return number of character(Bytes) written on output console..ret=printf("%d",123);....ret=3.
 Note:-scanf will return number of 
 //Question-*********************************************************************************************************************************
 
@@ -95,6 +95,17 @@ Note:-scanf will return number of
 
 //Q>printf() Function- What is the difference between "printf(...)" and "sprintf(...)"? 
 Ans:-sprintf(...) writes data to the character array whereas printf(...) writes data to the standard output device. 
+   
+   #include<math.h>
+   int main()
+   {
+       char str[80];
+
+       sprintf(str, "Value of Pi = %f", M_PI);
+       puts(str);
+   
+       return(0);
+}
 
 //**********************************************************************************************************************************************
 //Notes----------------------------operator-----------------------------------------
@@ -212,15 +223,22 @@ Ans..C has three types of storage: automatic, static and allocated.
 
 	Variable having block scope and without static specifier have automatic storage duration. 
 
-	Variables with block scope, and with static specifier have static scope. Global variables (i.e, file scope) with or without the the 		static specifier also have static scope. 
+	Variables with block scope, and with static specifier have static scope. Global variables (i.e, file scope) with or without the the 
+	static specifier also have static scope. 
 
 	Memory obtained from calls to malloc(), alloc() or realloc() belongs to allocated storage class.
 
 //Q..When should the register modifier be used? Does it really help? 
-Ans..The register modifier hints to the compiler that the variable will be heavily used and should be kept in the CPU’s registers, if possible, 	so that it can be accessed faster. 
+Ans..The register modifier hints to the compiler that the variable will be heavily used and should be kept in the CPU’s registers, if possible, 
+	so that it can be accessed faster. 
 	There are several restrictions on the use of the register modifier. 
-	First, the variable must be of a type that can be held in the CPU’s register. This usually means a single value of a size less than or 		equal to the size of an integer. Some machines have registers that can hold floating-point numbers as well. 
-	Second, because the variable might not be stored in memory, its address cannot be taken with the unary & operator. An attempt to do so 		is flagged as an error by the compiler. Some additional rules affect how useful the register modifier is. Because the number of 	 	registers is limited, and because some registers can hold only certain types of data (such as pointers or floating-point numbers),the number and types of register modifiers that will actually have any effect are dependent on what machine the program will run on. 		Any additional register modifiers are silently ignored by the compiler. 
+	First, the variable must be of a type that can be held in the CPU’s register. This usually means a single value of a size less than or 	
+	equal to the size of an integer. Some machines have registers that can hold floating-point numbers as well. 
+	Second, because the variable might not be stored in memory, its address cannot be taken with the unary & operator. An attempt to do so 	
+	is flagged as an error by the compiler. Some additional rules affect how useful the register modifier is. Because the number of
+	registers is limited, and because some registers can hold only certain types of data (such as pointers or floating-point numbers),
+	the number and types of register modifiers that will actually have any effect are dependent on what machine the program will run on. 
+	Any additional register modifiers are silently ignored by the compiler. 
 	Also, in some cases, it might actually be slower to keep a variable in a register because that register then becomes unavailable for 		other purposes or because the variable isn’t used enough to justify the overhead of loading and storing it. 
 	So when should the register modifier be used? The answer is never, with most modern compilers. Early C compilers did not keep any 		variables in registers unless directed to do so, and the register modifier was a valuable addition to the language. C compiler design 		has advanced to the point, however, where the compiler will usually make better decisions than the programmer about which variables 		should be stored in registers. 
 	In fact, many compilers actually ignore the register modifier, which is perfectly legal, because it is only a hint and not a directive.
