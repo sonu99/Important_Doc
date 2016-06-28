@@ -1,0 +1,4 @@
+Q> why __init in __init ex01_simple_module_init(void) not in remove function?
+Q> why not return 0 in remove function?
+Q> significant of 1st macro in printk?
+Q> what are the __FUNCTION__&  __FILE__..is  it standered c macro?
