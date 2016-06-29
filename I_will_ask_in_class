@@ -5,3 +5,5 @@ Q> what are the __FUNCTION__&  __FILE__..is  it standered c macro?
 Q> what is MODULE_LICENSE.
 Q> make file is not working, if i  compile the code from cmd
 Q> what it mean GPL module
+Q> kernel and application.
+Q> ring token 2 for driver means kernel will set processor ring 2
