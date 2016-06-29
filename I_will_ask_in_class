@@ -7,3 +7,13 @@ Q> make file is not working, if i  compile the code from cmd
 Q> what it mean GPL module
 Q> kernel and application.
 Q> ring token 2 for driver means kernel will set processor ring 2
+Q> why stack size is fixed in kernel space?
+Q> if i have connected 4 device into system..so only one driver will serve the seviecs to all device connected to system 
+    and it will represented by minor no then how one driver will serve the services to device.
+Q> if i load module then in /proc/modules i am seeing ex08 with live...........what is simple_driver in /proc/device....is it device
+   file 
+   ----------------------
+   -> ex08.ko
+   -> simple_chr_drv
+   -> simple_chr_device
+   ----------------------
