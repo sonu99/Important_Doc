@@ -202,7 +202,39 @@ Note:-we can use static and extern for function also...
 	or else you want to share function to outside then use extern..
 Note:-All global declaration are external declaration.
 
-Note:- Uninitialized data will go in to BSS 
+Note:- Uninitialized data will go in to BSS
+---------------------------------
+Some example
+------------
+1> static int v=34;
+main()
+{
+	auto int v=10;//no error
+}
+2> extern int v;//it will search deffination out side of code.//other source code or else out side of any function
+main()
+{
+	auto int v=10;//no error
+}
+3> extern int v;
+main()
+{
+	static int v=30;//no error
+}
+4> extern int v;//error 
+static int v;
+main()
+{}
+note:-in same scope we can't use more than one storage class
+
+Some Points
+-----------
+1> Best use of static variable
+    return static array from function means ..if u want to return multiple value from function.
+2> int * ptr-------------------------------------   1      1 modification are allowed in both  
+3> const int *ptr--------------------------------   0      1
+4> int * const ptr (* const ptr <-->const * ptr)--  1      0
+5> const int *const ptr--------------------------   0      0
 
 //Question--***********************************************************************************************************************************
 
@@ -246,10 +278,57 @@ Ans..The register modifier hints to the compiler that the variable will be heavi
 //********************************************************************************************************************************************
 Notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Function::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 Notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::link list::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::ARRAY+STRING+POINTER:::::::::::::::::::::::::::::::::::::::::::::
+=>collection of elements of same type in adjecent memory
+int m[4]
+-->access data by index
+-->looping for data access
+Note:-int a[]...error //it is userdefine data type, so compiler don't know the size
+Some pionts
+-----------
+1> name of array represent base address of array.
+2> a[i]<--->*(a+i)   //derefrence 
+3>don't try to access beyond the size of array // size is 5 but u trying to access...a[5] it will give garbage value or some time 
+//memory violation
+4> if u want to pass array to function then better to pass base address..and size of array
+       main()
+       {
+       		int a[10]={13,90};
+       		sizeof(a)/sizeof(a[0]);
+       		print(a,n)
+       }
+       print(int *a, int n)
+       {
+       	
+       }
+       	
+5> %[^\n]s--->it will take any character except \n
+6> memmove is use in overlapping area...instead of strcpy and strncpy
+7> 
+--------------
+Note:-for 2d and 3d array please check vector notes(1 page before DMA)
+Notes:::::::::::::::::::::::::::::::::::::::::::::::::::DMA:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Some Points
+-----------
+1-> On demand memory allocation(no shortage & no wastages)
+2-> Run time memory allocation or variable sized
+3-> if we are declered int a or int a[4]; then it is static or compile time memory allocation or fixed sized memory allocation
+4-> In DMA we have to request to memory manager of OS by using malloc , calloc, realloc and free for releasing the resource
+5-> memory leak--> for avoiding memory leak use free---
+6-> danaling pointer-> if use are releasing the resource then better to assign with NULL pointer otherwise it will still point 
+    to previous data.
+7-> realloc(0,6)-------it is similer to malloc(5)
+8-> realloc(ptr,0)-----it is similer to free(ptr)
+9-> in all cases..it return (void*)---OS don't know which type of data we are using 
+Q> why dyanling pointer problem not in static memory allocation + 
+------------------------------------------------------------------------------------------------------------------
 Dynamic memory allocation limitation
 ------------------------------------
 1> if you are deleting any recored then we have to move all recored in to forward direction
 2> if memory not available in contigeous form then DAM will fails...
 --------------------------------------------------------------
 Note:-Both we can slove by link list
----> link list is data structure in which node one node is link to other node 
+---> link list is data structure in which node one node is link to other node....where node is recored container.
+   --> contigeous memory is not required..
+   --> In link list should not use realloc best way to allocate memory is malloc & free function.
+   
