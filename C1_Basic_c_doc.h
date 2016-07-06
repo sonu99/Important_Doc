@@ -245,3 +245,11 @@ Ans..The register modifier hints to the compiler that the variable will be heavi
 
 //********************************************************************************************************************************************
 Notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Function::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Notes:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::link list::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Dynamic memory allocation limitation
+------------------------------------
+1> if you are deleting any recored then we have to move all recored in to forward direction
+2> if memory not available in contigeous form then DAM will fails...
+--------------------------------------------------------------
+Note:-Both we can slove by link list
+---> link list is data structure in which node one node is link to other node 
