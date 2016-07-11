@@ -304,7 +304,28 @@ Some pionts
        	
 5> %[^\n]s--->it will take any character except \n
 6> memmove is use in overlapping area...instead of strcpy and strncpy
-7> 
+==>DMA---2d and 3d allocation 
+1> array of pointer
+2> pointer to array
+1> array of pointer(not contigeous)
+int ***a;
+a=(int **)malloc(sizeof(int**));
+for(i=0;i<2;i++)
+{
+	a[i]=(int*)malloc(3*sizeof(int*));
+	for(j=0;j<3;j++)
+	{
+		a[i][j]=malloc(5*sizeof(int));
+	}
+}
+2> pointer to array(contigeous memory)
+-------------------
+char (*p)[10];
+p=calloc(5,10);//it will create 5 block of memory
+for(i=0;i<5;i++)
+{
+	gets(p[i]);
+}
 --------------
 Note:-for 2d and 3d array please check vector notes(1 page before DMA)
 Notes:::::::::::::::::::::::::::::::::::::::::::::::::::DMA:::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -321,6 +342,47 @@ Some Points
 8-> realloc(ptr,0)-----it is similer to free(ptr)
 9-> in all cases..it return (void*)---OS don't know which type of data we are using 
 Q> why dyanling pointer problem not in static memory allocation + 
+
+
+-----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+:::::::::::::::::::::::::::::::::::::::::::::::::::::Structure::::::::::::::::::::::::::::::::::::::::::::::::
+->user define data type which is capable to store related field of diffrent data type
+some points
+----------
+1> name wise access in structure 
+2> . operator use in structure to access it ex student.name
+3> -> operator use to access member through pointer.
+4> defination of struct info for compiler about it's properties
+5> if you are not giving tag then you can't  create object of that structure within any function 
+6> we can assign value of one structure into same structure variable only.ex--v1=v2
+7> call by value......print(v1)-------------------print(struct st v1).
+8> call by reference....print(&v1)................print(struct st *p).
+9> hole in structure:---->member allignment----> structure padding
+10> array is more  faster than structure:::in array all member present at equal distance 
+11> nesting structure...
+12> self reffrential structure..
+13> typedef:::::typedef int INT;//(exiting user define)
+14> typedef struct student
+		{
+			-----;
+			-----;
+		}ST;
+		
+15> typedef char int ---> worng
+16> #define char int-----> right
+17> union: it can only hold 1 member data..
+  union A
+  {
+  	int a;
+  	char b;
+  	double g;
+  
+  }v;
+  union A v={3,'A'}----> error u can initialized all member dada..
+18> enum:::
+enum E {a,b,c,d};-------------every enum variable is 4 byte
+19> member are not declared
 ------------------------------------------------------------------------------------------------------------------
 Dynamic memory allocation limitation
 ------------------------------------
