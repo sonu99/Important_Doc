@@ -1,0 +1,2 @@
+----> if number is divisible by 8 then last 3 digit should be 000.
+----> test it for checking, divisible by 8 or not..if (((x >> 3) << 3) == x) divisibleBy8 = true;
