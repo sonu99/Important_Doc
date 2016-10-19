@@ -1,0 +1,26 @@
+--------------
+Time and Work
+--------------
+
+Q> A can do a work in 15 days and B in 20 days. If they work on it together for 4 days, then the fraction of the work that is left is :
+
+A's 1 day's work =	1/15
+B's 1 day's work =	1/20
+(A + B)'s 1 day's work =	(	1	+	1	)	=	1/15+1/20 = 7/60
+(A + B)'s 4 day's work =	(	7/60	x 4	)	=	7/15
+Therefore, Remaining work =	(	1 -	7/15	)	=	8/16
+
+
+Q> A alone can do a piece of work in 6 days and B alone in 8 days.
+A and B undertook to do it for Rs. 3200. With the help of C, they completed the work in 3 days. 
+How much is to be paid to C?
+
+Ans:
+
+C's 1 day's work =	1/3	-	(1/8	+	1/6)		=	1/3	-	7/24	=	1	/24
+
+A's wages : B's wages : C's wages =	1/6	:	1/8	:	1/24	= 4 : 3 : 1.
+
+C's share (for 3 days) = Rs.		3 x	1/24	x 3200		= Rs. 400.
+
+
