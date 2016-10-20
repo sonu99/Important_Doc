@@ -17,3 +17,34 @@ int main() {
     }
 }
 3> http://www.dailyfreecode.com/code/sorting-link-list-2425.aspx
+
+
+4> reverse the string..
+
+Ans: 
+reverse(char *str, int len){
+   int i=0;
+   while(i<len)
+      {
+         temp = str[i];
+         str[i++] = str[len];
+         str[len--] = str[i];
+      }
+   return str;
+}
+
+5> swap the number using bitwise 
+Ans: 
+void swap(int *x, int *y)
+{
+    *x = *x ^ *y;  //X^X ----> 0(xor of same no will be zero)......and x^0 = x....
+    *y = *x ^ *y;
+    *x = *x ^ *y;
+
+}
+
+
+
+
+6> diffrence between linked list and array.
+   
