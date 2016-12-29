@@ -17,9 +17,16 @@ project overview
 ++++
 C
 ++++
-1> Bit wise operator based que
-2> String based fuction defination
-3> recursion based program and it's advantage
+Bit wise operator based que
+----------------------------
+String based fuction defination
+Recursion based program and it's advantage
+Que on Const and volatile qulifier
+----------------------------------
+Q> Where we can use volatile qulifire
+volatile int *ptr1 = 0x1000;
+volatile int *ptr2 = 0x2000;
+*ptr2 = *ptr1;
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
