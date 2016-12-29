@@ -37,4 +37,11 @@ Q> How data will save in emmc from internet, when we download file from internet
 
 Q> How data will redirect to hardware, when we click save button from user application?
 
+Q> Memory mapping for micro-controller (where a.out(hex code) will seat)?
+Ans: http://8051-microcontrollers.blogspot.in/2013/01/memory-map.html#.WGTx_mf1o8o
+
+
+Q> Memory mapping for a.out in PC or OS based system?
+Ans:
+
 
