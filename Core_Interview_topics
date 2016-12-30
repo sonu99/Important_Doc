@@ -58,17 +58,32 @@ String based fuction defination
 Recursion based program and it's advantage
 Que on Const and volatile qulifier
 
-1) Global variables modified by an interrupt service routine outside the scope: For example,
+Ans: Global variables modified by an interrupt service routine outside the scope: For example,
 a global variable can represent a data port (usually global pointer referred as memory mapped IO) which will be updated dynamically. 
 The code reading data port must be declared as volatile in order to fetch latest data available at the port.
 Failing to declare variable as volatile, the compiler will optimize the code in such a way that 
 it will read the port only once and keeps using the same value in a temporary register to speed up the program (speed optimization).
 In general, an ISR used to update these data port when there is an interrupt due to availability of new data
+
+Const Qualifier in C
+http://www.geeksforgeeks.org/const-qualifier-in-c/
+
 ----------------------------------
 Q> Where we can use volatile qulifire
 volatile int *ptr1 = 0x1000;
 volatile int *ptr2 = 0x2000;
 *ptr2 = *ptr1;
+
+Memory Layout of C Programs
+http://www.geeksforgeeks.org/memory-layout-of-c-program/
+_____________________________________________________________________
+Quiz
+----
+http://quiz.geeksforgeeks.org/c-language-2/storage-classes/
+http://quiz.geeksforgeeks.org/c-language-2/variable-declaration-and-scope/
+http://quiz.geeksforgeeks.org/c-language-2/data-types/
+http://quiz.geeksforgeeks.org/c-language-2/input-and-output/
+
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
