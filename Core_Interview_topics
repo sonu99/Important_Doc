@@ -17,11 +17,53 @@ project overview
 ++++
 C
 ++++
+=> Compiling a C program:- Behind the Scenes:
+http://www.geeksforgeeks.org/compiling-a-c-program-behind-the-scenes/
+-------
+cc -E test.c -o test.i
+cc -S test.i -o test.s
+cc -c test.s -o test.o
+
+=> Difference between “int main()” and “int main(void)” in C/C++?
+
+// Program 1 (Compiles and runs fine in C, but not in C++)
+void fun() {  } 
+int main(void)
+{
+    fun(10, "GfG", "GQ");
+    return 0;
+}
+Run on IDE
+The above program compiles and runs fine (See this), but the following program fails in compilation (see this)
+
+// Program 2 (Fails in compilation in both C and C++)
+void fun(void) {  }
+int main(void)
+{
+    fun(10, "GfG", "GQ");
+    return 0;
+}
+
+=> Is it fine to write “void main()” or “main()” in C/C++?
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Puzzel and program:
+
+http://www.geeksforgeeks.org/c/
+
+
+=================================
 Bit wise operator based que
 ----------------------------
 String based fuction defination
 Recursion based program and it's advantage
 Que on Const and volatile qulifier
+
+1) Global variables modified by an interrupt service routine outside the scope: For example,
+a global variable can represent a data port (usually global pointer referred as memory mapped IO) which will be updated dynamically. 
+The code reading data port must be declared as volatile in order to fetch latest data available at the port.
+Failing to declare variable as volatile, the compiler will optimize the code in such a way that 
+it will read the port only once and keeps using the same value in a temporary register to speed up the program (speed optimization).
+In general, an ISR used to update these data port when there is an interrupt due to availability of new data
 ----------------------------------
 Q> Where we can use volatile qulifire
 volatile int *ptr1 = 0x1000;
