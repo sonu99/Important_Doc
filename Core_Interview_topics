@@ -76,6 +76,10 @@ volatile int *ptr2 = 0x2000;
 
 Memory Layout of C Programs
 http://www.geeksforgeeks.org/memory-layout-of-c-program/
+Check memory leak..
+http://www.geeksforgeeks.org/how-to-deallocate-memory-without-using-free-in-c/
+How free will come to know size of deallocation
+http://www.geeksforgeeks.org/g-fact-88/
 _____________________________________________________________________
 Quiz
 ----
