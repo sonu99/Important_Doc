@@ -70,7 +70,7 @@ C is block structure language..
 	-integer------int-----4byte------%d
 	-	     sort int---2byte----%hd
 	             unsigned int--4byte---%u
-	-character char---1byte--%c
+	-character char---1byte---%c
 	-Real------float--4byte---%f
 		   double-8byte---%lf
 		   long double-10/12byte...%llf
@@ -242,8 +242,8 @@ Some Points
     return static array from function means ..if u want to return multiple value from function.
 2> int * ptr-------------------------------------   1      1 modification are allowed in both  
 3> const int *ptr--------------------------------   0      1
-4> int * const ptr (* const ptr <-->const * ptr)--  1      0
-5> const int *const ptr--------------------------   0      0
+4> int * const ptr--------------------------------  1      0
+5> const int *const ptr-(const char *ptr is same as char const *ptr;)---   0      0
 //Question--***********************************************************************************************************************************
 //Q--What does static variable mean? 
 	there are 3 main uses for the static.
@@ -465,12 +465,19 @@ volatile int *ptr2 = 0x2000;
 
 Memory Layout of C Programs
 http://www.geeksforgeeks.org/memory-layout-of-c-program/
+---
+-> if we are writing char *ptr = "sonu"....memory of ptr will come from data section but "sonu" will go into text section.
+-> if we are writing char * const ptr = "sonugggggggggggg"; then compiler will put it into text section
+-> if variable local constant then it will put into test section that's why we can't change it...but golobal we can change...
+bcz it will come from data section.
+---
 Check memory leak..
 http://www.geeksforgeeks.org/how-to-deallocate-memory-without-using-free-in-c/
 How free will come to know size of deallocation
 http://www.geeksforgeeks.org/g-fact-88/
 What is memory leak and how you can avoid it.
 http://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/
+
 _____________________________________________________________________
 Quiz
 ----
