@@ -495,6 +495,11 @@ Set Bit--- 	data|=(1<<bit)
 Clear Bit- 	(data &=~(1<<bit))
 compliment bit--data^=(1<<bit)
 
+Important fact of bitwise operator
+http://www.geeksforgeeks.org/interesting-facts-bitwise-operators-c/
+
+Important progam on bitwise operator.
+http://www.crazyforcode.com/bitwise-operators/
 
 
 
