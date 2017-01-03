@@ -395,6 +395,11 @@ Note:-Both we can slove by link list
 --> In link list should not use realloc best way to allocate memory is malloc & free function.
 
 
+Address binding:
+
+https://www.cyberciti.biz/faq/linux-find-size-of-text-data-segment-bss-uninitialized-data/
+
+
 -----------------------------------Interview and important que------------------------------
 
 
