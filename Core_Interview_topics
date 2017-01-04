@@ -498,8 +498,29 @@ compliment bit--data^=(1<<bit)
 Important fact of bitwise operator
 http://www.geeksforgeeks.org/interesting-facts-bitwise-operators-c/
 
-Important progam on bitwise operator.
+Important program on bitwise operator.
 http://www.crazyforcode.com/bitwise-operators/
+------------------------------------
+Q=>how to check divisibal by 8 using bit wise operator.
+So in order to check for divisibility by 8 you need to check if the three low order bits are all zero:
+
+if (((x >> 3) << 3) == x)
+  divisibleBy8 = true;
+  
+Q=> Find the Maximum of Two Numbers Without Using if-else
+
+/*Function to find minimum of x and y*/
+int min(int x, int y)
+{
+  return y ^ ((x ^ y) & -(x < y));
+}
+  
+/*Function to find maximum of x and y*/
+int max(int x, int y)
+{
+  return x ^ ((x ^ y) & -(x < y));
+}
+
 
 
 
