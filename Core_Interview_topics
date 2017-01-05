@@ -577,6 +577,85 @@ http://www.geeksforgeeks.org/g-fact-88/
 What is memory leak and how you can avoid it.
 http://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/
 
+
+Linked List
++++++++++++
+Q> One before last node
+NODE * temp = head;
+while(temp && (temp-> link) && temp -> link->link)
+   { 
+      temp = temp ->link; 
+   }
+
+Using single pointer
+Q> 5 before last
+
+NODE * temp = head;
+while(temp)
+{
+   temp =temp-> next;
+   len++;
+}
+for(i=0;i<len-5;i++)
+temp = temp->next;
+
+Q> at mid---> using single pointer same as above
+Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
+When the fast pointer reaches end slow pointer will reach middle of the linked list.
+
+void printMiddle(struct node *head)
+{
+    struct node *slow_ptr = head;
+    struct node *fast_ptr = head;
+ 
+    if (head!=NULL)
+    {
+        while (fast_ptr != NULL && fast_ptr->next != NULL)
+        {
+            fast_ptr = fast_ptr->next->next;
+            slow_ptr = slow_ptr->next;
+        }
+        printf("The middle element is [%d]\n\n", slow_ptr->data);
+    }
+}
+Nth before last node
+
+Maintain two pointers – reference pointer and main pointer. Initialize both reference and main pointers to head.
+First move reference pointer to n nodes from head. Now move both pointers one by one until reference pointer reaches end.
+Now main pointer will point to nth node from the end. Return main pointer.
+
+
+/* Function to get the nth node from the last of a linked list*/
+void printNthFromLast(struct node *head, int n)
+{
+  struct node *main_ptr = head;
+  struct node *ref_ptr = head;
+ 
+  int count = 0;
+  if(head != NULL)
+  {
+     while( count < n )
+     {
+        if(ref_ptr == NULL)
+        {
+           printf("%d is greater than the no. of "
+                    "nodes in list", n);
+           return;
+        }
+        ref_ptr = ref_ptr->next;
+        count++;
+     } /* End of while*/
+ 
+     while(ref_ptr != NULL)
+     {
+        main_ptr = main_ptr->next;
+        ref_ptr  = ref_ptr->next;
+     }
+     printf("Node no. %d from last is %d ", 
+              n, main_ptr->data);
+  }
+}
+
 _____________________________________________________________________
 Quiz
 ----
