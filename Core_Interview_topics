@@ -495,6 +495,36 @@ Set Bit--- 	data|=(1<<bit)
 Clear Bit- 	(data &=~(1<<bit))
 compliment bit--data^=(1<<bit)
 
+
+#include<stdio.h>
+main()
+{
+     int v1 = 0x02;
+     int v2 = 0x00,i;
+     for(i = 0; i<16; i++)
+     {
+         v2 = v2|(((v1>>i)&1)<<i);
+     }
+     printf("%x\n", v2);
+}
+----------------------------------------
+#include<stdio.h>
+main()
+{
+    int bit_5 =0, bit_0=0, data = 0x20;
+    bit_5 = (data>>5)&1;
+    bit_0 = (data>>0)&1;
+    if(!(bit_5 == bit_0))
+    {
+        data^= 1<<5;
+        data^= 1<<0;
+        printf("i am in if");
+
+    }
+    printf("%x",data);
+}
+-------------------------------------
+
 Important fact of bitwise operator
 http://www.geeksforgeeks.org/interesting-facts-bitwise-operators-c/
 
