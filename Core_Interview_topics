@@ -686,6 +686,11 @@ void printNthFromLast(struct node *head, int n)
   }
 }
 
+
+Structure, Array, pointer and union:
+
+http://www.c4learn.com/c-programming/c-initializing-structure/
+
 _____________________________________________________________________
 Quiz
 ----
