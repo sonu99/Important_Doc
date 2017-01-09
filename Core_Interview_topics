@@ -443,6 +443,10 @@ int main( ) {
 
    return 0;
 }
+
+
+
+http://www.c4learn.com/c-programming/c-structure-bit-manipulation/
 ------------------------------------------------------------------------------------------------------------------
 Dynamic memory allocation limitation
 ------------------------------------
@@ -702,6 +706,28 @@ void printNthFromLast(struct node *head, int n)
 Structure, Array, pointer and union:
 
 http://www.c4learn.com/c-programming/c-initializing-structure/
+
+
+Q> calculate size of structure without sizeof structure.
+
+#include<stdio.h>
+
+struct
+  {
+  int num1,num2;
+  char s1;
+  int *ptr;
+  int abc[5];
+}a[2];
+
+void main()
+  {
+  int start,last;
+  start = &a[1].num1;
+  last = &a[0].num1;
+  printf("\nSize of Structure : %d Bytes",start-last);
+}
+
 
 _____________________________________________________________________
 Quiz
