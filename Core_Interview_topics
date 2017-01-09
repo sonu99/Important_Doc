@@ -286,6 +286,18 @@ int m[4]
 Note:-int a[]...error //it is userdefine data type, so compiler don't know the size
 Some pionts
 -----------
+=>>>>>>> if you are declaring any pointer, which will hold the any kind of variable.
+         int i;
+	 int *ptr = &i;
+	 int a[10];
+	 int *ptr = a;
+	 struct student v;
+	 struct student *ptr = v;
+	 struct student * v[5];
+	 struct student * *ptr=v;
+
+
+
 1> name of array represent base address of array.
 2> a[i]<--->*(a+i)   //derefrence 
 3>don't try to access beyond the size of array // size is 5 but u trying to access...a[5] it will give garbage value or some time 
