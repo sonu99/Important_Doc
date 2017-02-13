@@ -779,3 +779,11 @@ Q> Memory mapping for a.out in PC or OS based system?
 Ans:
 
 
+
+ p         -- p
+       *p         -- is a pointer
+      (*p)[4]     -- to a 4-element array
+     *(*p)[4]     -- of pointers
+    (*(*p)[4])()  -- to functions 
+int (*(*p)[4])(); -- returning int. 
+
