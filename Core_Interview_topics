@@ -790,3 +790,8 @@ int (*(*p)[4])(); -- returning int.
 
 int (*p)(int)  ----------------> pointer to function
 
+
+----------------------------------------------------------------------------------------------
+-> creating C library.
+hinding the implementation.
+
